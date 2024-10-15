@@ -12,52 +12,38 @@
     @include('layouts.navbar')
     <div class="container mx-auto">
         <div class="pt-10">
-            <div class="ml-10 text-lg font-bold">Trending Now</div>
-            <div class="flex space-x-4 mt-4">
-                @for ($i = 0; $i < count($trending); $i++)
-                    <div class="bg-gray-800 rounded-lg overflow-hidden w-full transform transition-transform duration-200 hover:bg-gray-700 hover:shadow-lg hover:scale-125"
-                        onmouseover="this.style.zIndex='10'" onmouseout="this.style.zIndex='0'">
-                        <a class="bg-gray-800 rounded-lg overflow-hidden w-full">
-                            <img src="{{ asset('assets/images/trending/' . $i + 1 . '.jpg') }}"
-                                alt="{{ $trending[$i] }}" class="w-full h-56 object-cover">
-                            <div class="p-2">
-                                <p class="text-sm font-semibold text-center">{{ $trending[$i] }}</p>
-                            </div>
-                        </a>
-                    </div>
-                @endfor
-            </div>
-
             <div class="ml-10 text-lg font-bold mt-10">Popular Movies</div>
             <div class="flex space-x-4 mt-4 overflow-visible">
-                @for ($i = 0; $i < count($popular); $i++)
+                @foreach ($movies as $index => $movie)
                     <div class="bg-gray-800 rounded-lg overflow-hidden w-full transform transition-transform duration-200 hover:shadow-lg hover:scale-125"
                         onmouseover="this.style.zIndex='10'" onmouseout="this.style.zIndex='0'">
-                        <a href="/" class="rounded-lg overflow-hidden w-full">
-                            <img src="{{ asset('assets/images/popular/' . $i + 1 . '.jpg') }}" alt="{{ $popular[$i] }}"
-                                class="w-full h-56 object-cover">
+                        <a href="{{ route('movie', ['title' => $movie['title']]) }}"
+                            class="rounded-lg overflow-hidden w-full" target="_blank">
+                            <img src="{{ asset('assets/images/movies/' . $index + 1 . '.jpg') }}"
+                                alt="{{ $movie['title'] }}" class="w-full h-56 object-cover" loading="lazy">
                             <div class="p-2">
-                                <p class="text-sm font-semibold text-center">{{ $popular[$i] }}</p>
+                                <p class="text-sm font-semibold text-center">{{ $movie['title'] }}</p>
                             </div>
                         </a>
                     </div>
-                @endfor
+                @endforeach
             </div>
 
-            <div class="ml-10 text-lg font-bold mt-10">Anime</div>
+            <div class="ml-10 text-lg font-bold mt-10">Popular Anime</div>
             <div class="flex space-x-4 mt-4">
-                @for ($i = 0; $i < count($anime); $i++)
+                @foreach ($animes as $index => $anime)
                     <div class="bg-gray-800 rounded-lg overflow-hidden w-full transform transition-transform duration-200 hover:bg-gray-700 hover:shadow-lg hover:scale-125"
                         onmouseover="this.style.zIndex='10'" onmouseout="this.style.zIndex='0'">
-                        <a class="bg-gray-800 rounded-lg overflow-hidden w-full">
-                            <img src="{{ asset('assets/images/anime/' . $i + 1 . '.jpg') }}" alt="{{ $anime[$i] }}"
-                                class="w-full h-56 object-cover">
+                        <a href="{{ route('anime', ['title' => $anime['title']]) }}"
+                            class="rounded-lg overflow-hidden w-full" target="_blank">
+                            <img src="{{ asset('assets/images/anime/' . $index + 1 . '.jpg') }}"
+                                alt="{{ $anime['title'] }}" class="w-full h-56 object-cover" loading="lazy">
                             <div class="p-2">
-                                <p class="text-sm font-semibold text-center">{{ $anime[$i] }}</p>
+                                <p class="text-sm font-semibold text-center">{{ $anime['title'] }}</p>
                             </div>
                         </a>
                     </div>
-                @endfor
+                @endforeach
             </div>
         </div>
     </div>
