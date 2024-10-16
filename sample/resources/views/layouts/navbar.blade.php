@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-black text-white">
+<div class="bg-black text-white">
     <nav class="sticky z-50 top-0 bg-black md:px-10">
         <div class="grid grid-cols-2 md:justify-between items-center w-full p-2 xl:p-4">
             <div class="flex flex-row items-center space-x-2 md:space-x-10">
@@ -37,6 +27,4 @@
             </div>
         </div>
     </nav>
-</body>
-
-</html>
+</div>
